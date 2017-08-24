@@ -16,4 +16,40 @@ $(document).ready(function () {
   // to toggle hidden content
   var showHideContent = new GOVUK.ShowHideContent()
   showHideContent.init()
-})
+
+
+  if(document.querySelectorAll('.expanding-area')) {
+      document.querySelectorAll('.expanding-area').forEach(function(ex) {
+          ex.addEventListener('click', expandCells);
+      });
+  }
+
+  function expandCells() {
+      var self = this;
+      document.querySelectorAll('.expandable').forEach(function(item) {
+              item.classList.add('js-hidden');
+      });
+      document.querySelectorAll('.' + this.dataset.target).forEach(function(item) {
+          if(item.classList.contains('js-hidden')) {
+              item.classList.remove('js-hidden');
+          } else {
+              item.classList.add('js-hidden');
+          }
+      });
+  }
+
+  if(document.querySelectorAll('.clickable-row')) {
+      document.querySelectorAll('.clickable-row').forEach(function(tr) {
+          tr.addEventListener('click', submitForm);
+      });
+  }
+
+  function submitForm() {
+      document.getElementById('_id').value = this.id;
+      document.getElementById('tableForm').submit();
+  }
+
+
+
+
+});

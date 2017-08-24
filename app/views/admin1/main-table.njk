@@ -1,0 +1,148 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+<div class="phase-banner">
+  <p>
+    <strong class="phase-tag">ALPHA</strong>
+    <span>This is a new service – your <a href="#">feedback</a> will help us to improve it.</span>
+  </p>
+</div>
+
+  <div class="grid-row">
+    <div class="column-full">
+
+        <table>
+          <caption class="heading-small">Course locations (click to expand)</caption>
+          <caption class="heading-small expanding-area" data-target="Leeds">Leeds</caption>
+
+            <thead class="Leeds expandable js-hidden">
+              <th>Course type</th>
+              <th>Start date</th>
+              <th>End date</th>
+              <th>Attendees</th>
+              <th>Remaining</th>
+          </thead>
+          <tbody class="Leeds expandable js-hidden">
+              {% for course in apiResponse %}
+              {% if course.name === 'Digital & Agile Awareness Course' and course.location === 'Leeds' %}
+                <tr class="clickable-row" id="{{ course._id }}">
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.start }}</td>
+                    <td>{{ course.end }}</td>
+                    <td>{{ course.attendee.length }}</td>
+                    <td>{{ course.maximum - course.attendee.length }}</td>
+
+                </tr>
+                {% endif %}
+              {% endfor %}
+              {% for course in apiResponse %}
+              {% if course.name === 'Digital & Agile Foundation Course' and course.location === 'Leeds' %}
+                <tr class="clickable-row" id="{{ course._id }}">
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.start }}</td>
+                    <td>{{ course.end }}</td>
+                    <td>{{ course.attendee.length }}</td>
+                    <td>{{ course.maximum - course.attendee.length }}</td>
+
+                </tr>
+                {% endif %}
+              {% endfor %}
+          </tbody>
+
+        </table>
+
+
+        <table>
+          <caption class="heading-small expanding-area" data-target="Newcastle">Newcastle</caption>
+
+            <thead class="Newcastle expandable js-hidden">
+              <th>Course type</th>
+              <th>Start date</th>
+              <th>End date</th>
+              <th>Attendees</th>
+              <th>Remaining</th>
+          </thead>
+          <tbody class="Newcastle expandable js-hidden">
+              {% for course in apiResponse %}
+              {% if course.name === 'Digital & Agile Awareness Course' and course.location === 'Newcastle' %}
+                <tr class="clickable-row"  id="{{ course._id }}">
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.start }}</td>
+                    <td>{{ course.end }}</td>
+                    <td>{{ course.attendee.length }}</td>
+                    <td>{{ course.maximum - course.attendee.length }}</td>
+
+                </tr>
+                {% endif %}
+              {% endfor %}
+              {% for course in apiResponse %}
+              {% if course.name === 'Digital & Agile Foundation Course' and course.location === 'Newcastle' %}
+                <tr class="clickable-row"  id="{{ course._id }}">
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.start }}</td>
+                    <td>{{ course.end }}</td>
+                    <td>{{ course.attendee.length }}</td>
+                    <td>{{ course.maximum - course.attendee.length }}</td>
+
+                </tr>
+                {% endif %}
+              {% endfor %}
+          </tbody>
+        </table>
+
+        <table>
+          <caption class="heading-small expanding-area" data-target="London">London</caption>
+
+            <thead class="London expandable js-hidden">
+              <th>Course type</th>
+              <th>Start date</th>
+              <th>End date</th>
+              <th>Attendees</th>
+              <th>Remaining</th>
+          </thead>
+          <tbody class="London expandable js-hidden">
+              {% for course in apiResponse %}
+              {% if course.name === 'Digital & Agile Awareness Course' and course.location === 'London' %}
+                <tr class="clickable-row"  id="{{ course._id }}">
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.start }}</td>
+                    <td>{{ course.end }}</td>
+                    <td>{{ course.attendee.length }}</td>
+                    <td>{{ course.maximum - course.attendee.length }}</td>
+
+                </tr>
+                {% endif %}
+              {% endfor %}
+              {% for course in apiResponse %}
+              {% if course.name === 'Digital & Agile Foundation Course' and course.location === 'London' %}
+                <tr class="clickable-row"  id="{{ course._id }}">
+                    <td>{{ course.name }}</td>
+                    <td>{{ course.start }}</td>
+                    <td>{{ course.end }}</td>
+                    <td>{{ course.attendee.length }}</td>
+                    <td>{{ course.maximum - course.attendee.length }}</td>
+
+                </tr>
+                {% endif %}
+              {% endfor %}
+          </tbody>
+        </table>
+
+        <form id="tableForm" action="individual-course" method="post">
+            <input id="_id" type="hidden" name="table-form" value="">
+        </form>
+
+
+
+
+    </div>
+</div>
+</main>
+
+{% endblock %}

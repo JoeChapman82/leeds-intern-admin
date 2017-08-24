@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+<div class="phase-banner">
+  <p>
+    <strong class="phase-tag">ALPHA</strong>
+    <span>This is a new service – your <a href="#">feedback</a> will help us to improve it.</span>
+  </p>
+</div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+        <h1 class="heading-xlarge">{{ course.name }}, {{ course.location }}, {{ course.start }}</h1>
+
+        <table>
+          <caption class="heading-small">Attendees</caption>
+          <thead>
+              <th>email address</th>
+          </thead>
+          <tbody>
+              {% if course.attendee.length !== 0 %}
+              {% for att in course.attendee %}
+                  <tr>
+                      <td>{{ att }}</td>
+                  </tr>
+              {% endfor %}
+              {% else %}
+                  <tr>
+                      <td>No attendees</td>
+                  </tr>
+              {% endif %}
+          </tbody>
+      </table>
+
+    </div>
+</div>
+
+</main>
+
+{% endblock %}

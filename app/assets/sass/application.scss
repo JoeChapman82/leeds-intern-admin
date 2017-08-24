@@ -29,3 +29,13 @@ $path: "/public/images/";
 }
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+.expanding-area:hover {
+    background-color: $grey-4;
+    cursor: pointer;
+}
+
+.clickable-row:hover {
+    background-color: $grey-4;
+    cursor: pointer;
+}
